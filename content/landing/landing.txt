@@ -2,7 +2,7 @@ Title: Landing
 
 ----
 
-Nav-logo-type: both
+Nav-logo-type: image
 
 ----
 
@@ -14,11 +14,11 @@ Nav-logo-both-text: Westport Partners
 
 ----
 
-Nav-logo-image: 
+Nav-logo-image: - file://givrzly0y49nkgky
 
 ----
 
-Nav-logo-image-both: - file://ldbpu5jm51hlobbb
+Nav-logo-image-both: - file://givrzly0y49nkgky
 
 ----
 

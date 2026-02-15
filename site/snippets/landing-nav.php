@@ -52,7 +52,7 @@ $isHorizontal = ($position === 'left' || $position === 'right');
 $alignItems   = $isHorizontal ? 'center' : 'flex-start';
 $innerStyle   = "display:inline-flex;flex-direction:{$flexDir};align-items:{$alignItems};gap:{$gapValue};padding:{$padValue};margin:{$marValue};";
 ?>
-<nav id="mainNav" class="fixed top-0 w-full px-6 lg:px-10 py-0 z-100 flex justify-between items-center min-h-[64px] bg-linear-to-b from-black/50 to-transparent transition-all duration-300 ease-in-out">
+<nav id="mainNav" class="fixed top-0 w-full px-6 lg:px-10 pt-4 pb-2 z-100 flex justify-between items-center min-h-[64px] bg-linear-to-b from-black/50 to-transparent transition-all duration-300 ease-in-out">
 
     <?php /* ── LOGO ─────────────────────────────────────────────────────────── */ ?>
     <a href="<?= $site->url() ?>" class="flex items-center shrink-0 text-sm font-bold tracking-tighter uppercase no-underline text-white">

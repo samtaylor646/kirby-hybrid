@@ -51,7 +51,7 @@ $flexDir    = match($position) {
 $alignItems = ($position === 'left' || $position === 'right') ? 'center' : 'flex-start';
 $innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};gap:{$gapValue};padding:{$padValue};margin:{$marValue};";
 ?>
-<nav id="mainNav" class="fixed top-0 w-full p-6 lg:p-10 z-100 flex justify-between items-center bg-linear-to-b from-black/50 to-transparent transition-all duration-300 ease-in-out">
+<nav id="mainNav" class="fixed top-0 w-full px-6 lg:px-10 py-0 z-100 flex justify-between items-center bg-linear-to-b from-black/50 to-transparent transition-all duration-300 ease-in-out">
 
     <a href="<?= $site->url() ?>" class="text-sm font-bold tracking-tighter uppercase">
 

@@ -1,0 +1,15 @@
+{
+  "name": "Kirby-Standalone-Stack",
+  "build": { "dockerfile": "Dockerfile" },
+  "forwardPorts": [8000, 5173],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "bradlc.vscode-tailwindcss",
+        "arnoson.kirby-vite",
+        "rooveterinaryinc.roo-cline"
+      ]
+    }
+  }
+}

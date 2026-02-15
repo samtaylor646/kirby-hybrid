@@ -1,0 +1,247 @@
+Title: Landing
+
+----
+
+Nav-logo: Westport Partners
+
+----
+
+Nav-cta-text: Contact
+
+----
+
+Nav-cta-link: 
+
+----
+
+Hero-video: - file://dvwcdlfalivhjklm
+
+----
+
+Hero-title: At the Apex of<br>AI-Augmented Design
+
+----
+
+Hero-cta-text: Explore Solutions
+
+----
+
+Hero-cta-link: solutions
+
+----
+
+Mission-label: The Mission
+
+----
+
+Mission-body: <p>Federal agencies face a <em>modernization crisis</em>. We bridge the gap between <em>ambitious technical mandates</em> and legacy budget constraints using <em>AI-augmented delivery pods</em>. Built for mission-critical infrastructure.</p>
+
+----
+
+Solutions-label: Solutions & Deliverables
+
+----
+
+Solutions-cards:
+
+- 
+  category: DevSecOps Engineering
+  title: AI-Augmented Pods
+  body: "We don't just provide staffing; we deploy highly integrated **Engineering Pods** equipped with proprietary AI agents that automate the tedious aspects of the SDLC. From automated unit test generation to AI-assisted code reviews, we increase delivery velocity by up to 300%."
+  tags: |
+    // CI/CD Automation
+    // Automated Unit Testing
+    // Legacy Code Refactoring
+    // Performance Benchmarking
+- 
+  category: Cloud Infrastructure
+  title: FedRAMP-Ready Migration
+  body: 'Transitioning legacy on-prem systems to the cloud requires more than a lift-and-shift. We implement **Infrastructure as Code (IaC)** templates that are pre-configured for FedRAMP High and Moderate baselines, ensuring compliance is baked into the architecture from Day 0.'
+  tags: |
+    // Zero-Trust Architecture
+    // Serverless Optimizations
+    // Multi-Cloud Governance
+    // Cost Optimization
+- 
+  category: 'Security & Compliance'
+  title: Continuous Authority to Operate (cATO)
+  body: 'The traditional ATO process is a bottleneck. We specialize in implementing **Continuous Diagnostics and Mitigation (CDM)** frameworks that allow for a cATO, enabling agencies to push updates hourly rather than quarterly while maintaining a superior security posture.'
+  tags: |
+    // OSCAL Documentation
+    // NIST 800-53 Compliance
+    // Vulnerability Scanning
+    // Identity Management
+
+----
+
+Strategy-label: Strategy & Philosophy
+
+----
+
+Strategy-heading: <p><em>Reimagining</em> Federal Delivery.</p>
+
+----
+
+Strategy-cells:
+
+- 
+  title: Outcome-Based Contracts
+  body: 'Federal contracting is broken by billable hours. Westport Partners operates on **Fixed-Price, Outcome-Based** models. We align our profit with your mission success, ensuring accountability is the baseline, not an afterthought.'
+  expanded_body: >
+    Our engagement model shifts risk from
+    the agency to the partner. By committing
+    to specific technical outcomes rather
+    than staffing counts, we ensure that
+    every sprint produces tangible value
+    toward the mission goal.
+  expanded_items: |
+    > FIXED-PRICE SPRINTS
+    > MILESTONE-BASED BILLING
+    > SHARED RISK FRAMEWORKS
+  cell_media_type: image
+  cell_image:
+    - file://bkslknktgzs0vn79
+  cell_video: [ ]
+  cell_gallery: [ ]
+  number: 01 // Outcome vs. Effort
+- 
+  title: Security is Engineering
+  body: "Security is not a final check; it's a code requirement. Our engineers are DevSecOps certified, ensuring that every line of code passed to production has already undergone static and dynamic analysis."
+  expanded_body: ""
+  expanded_items: ""
+  cell_media_type: ""
+  cell_image: [ ]
+  cell_video: [ ]
+  cell_gallery: [ ]
+  number: 02 // Shift-Left Security
+- 
+  title: Real-Time Dashboards
+  body: >
+    We provide agencies with live access to
+    our Jira backlogs, GitHub repositories,
+    and CI/CD pipelines. No more monthly
+    status reports—just real-time data on
+    project velocity and mission readiness.
+  expanded_body: ""
+  expanded_items: ""
+  cell_media_type: ""
+  cell_image: [ ]
+  cell_video: [ ]
+  cell_gallery: [ ]
+  number: 03 // Radical Transparency
+- 
+  title: Maximum Engineering Density
+  body: >
+    We maintain a 9:1 engineer-to-admin
+    ratio. By minimizing corporate overhead
+    and leveraging AI for internal ops, we
+    ensure that $0.90 of every dollar is
+    spent on high-end technical delivery.
+  expanded_body: ""
+  expanded_items: ""
+  cell_media_type: ""
+  cell_image: [ ]
+  cell_video: [ ]
+  cell_gallery: [ ]
+  number: 04 // Lean Operations
+
+----
+
+Consultant-label: ✨ AI Modernization Architect
+
+----
+
+Consultant-heading: <p>Design your Mission Roadmap.</p>
+
+----
+
+Consultant-intro: Enter your project parameters or technical challenges below. Our Gemini-powered engine will draft an immediate strategic framework for your federal modernization needs.
+
+----
+
+Consultant-input-label: Describe your technical challenge
+
+----
+
+Consultant-input-placeholder: e.g. Modernizing CMS data ingestion with FedRAMP security...
+
+----
+
+Consultant-button-text: Generate Roadmap ✨
+
+----
+
+Footer-company: Westport Partners
+
+----
+
+Footer-tagline: AI-augmented engineering for federal missions. Performance. Accountability. Delivery.
+
+----
+
+Footer-solutions-links:
+
+- 
+  label: AI-Augmented Pods
+  anchor: AI-Augmented Pods
+- 
+  label: Cloud Migration
+  anchor: Cloud Migration
+- 
+  label: DevSecOps
+  anchor: DevSecOps
+- 
+  label: Security / cATO
+  anchor: Security / cATO
+
+----
+
+Footer-company-links:
+
+- 
+  label: About Us
+  anchor: '#about'
+- 
+  label: Our Strategy
+  anchor: strategy
+- 
+  label: Careers
+  anchor: careers
+- 
+  label: Contact
+  anchor: contact
+
+----
+
+Footer-cage: CAGE: 98H25
+
+----
+
+Footer-uei: UEI: WP-FEDERAL-01
+
+----
+
+Footer-compliance-links:
+
+- 
+  label: Security Policy
+  url: http://site.com/security-policyhtml
+- 
+  label: Terms
+  url: http://site.com/term.html
+
+----
+
+Footer-watermark: WP.FEDERAL
+
+----
+
+Footer-location: Operating out of Annapolis, MD
+
+----
+
+Footer-copyright: © 2026 Westport Partners LLC. All Rights Reserved.
+
+----
+
+Uuid: vkxp90nafehrjsai

@@ -1,0 +1,240 @@
+title: Landing
+icon: 🏔️
+tabs:
+
+  # ─── NAV ────────────────────────────────────────────────────────────────────
+  nav:
+    label: Navigation
+    icon: menu
+    fields:
+      nav_logo:
+        label: Company Name
+        type: text
+        default: Westport Partners
+        required: true
+      nav_cta_text:
+        label: Nav CTA Button Text
+        type: text
+        default: Contact
+      nav_cta_link:
+        label: Nav CTA Anchor (e.g. #contact)
+        type: text
+        default: "#contact"
+
+  # ─── HERO ───────────────────────────────────────────────────────────────────
+  hero:
+    label: Hero
+    icon: play-circle
+    fields:
+      hero_video:
+        label: Background Video
+        type: files
+        query: page.files
+        uploads: true
+        accept:
+          mime: video/mp4
+        max: 1
+        help: Upload an MP4 video. Recommended size — under 10MB.
+      hero_title:
+        label: Hero Title
+        type: writer
+        inline: false
+        marks: false
+        nodes:
+          - heading2
+          - paragraph
+        default: "At the Apex of <br>AI-Augmented Design"
+      hero_cta_text:
+        label: CTA Button Label
+        type: text
+        default: Explore Custom Solutions ✨
+      hero_cta_link:
+        label: CTA Button Anchor
+        type: text
+        default: "#consultant"
+
+  # ─── MISSION ────────────────────────────────────────────────────────────────
+  mission:
+    label: Mission
+    icon: star
+    fields:
+      mission_label:
+        label: Section Label
+        type: text
+        default: "01 / The Mission"
+      mission_body:
+        label: Mission Statement
+        type: writer
+        inline: false
+        help: >
+          Use the editor to write the mission text.
+          Wrap words in emphasis (italic) to render them as dimmed
+          highlight spans — the template will apply the .highlight class.
+
+  # ─── SOLUTIONS ──────────────────────────────────────────────────────────────
+  solutions:
+    label: Solutions
+    icon: layers
+    fields:
+      solutions_label:
+        label: Section Label
+        type: text
+        default: "02 / Solutions & Delivery"
+      solutions_cards:
+        label: Service Cards
+        type: structure
+        min: 1
+        max: 6
+        fields:
+          category:
+            label: Category Tag (small top-left label)
+            type: text
+            placeholder: DevSecOps Engineering
+          title:
+            label: Card Title
+            type: text
+            placeholder: AI-Augmented Pods
+          body:
+            label: Body Text
+            type: textarea
+            size: medium
+          tags:
+            label: Tech Tags (one per line, max 4)
+            type: textarea
+            size: small
+            help: "One tag per line, max 4. Include the prefix, e.g: // CI/CD Automation"
+
+  # ─── STRATEGY ───────────────────────────────────────────────────────────────
+  strategy:
+    label: Strategy
+    icon: diagram
+    fields:
+      strategy_label:
+        label: Section Label
+        type: text
+        default: "03 / Strategy & Philosophy"
+      strategy_heading:
+        label: Section Heading
+        type: writer
+        inline: false
+        nodes:
+          - heading2
+        default: "Reimagining Federal Delivery."
+      strategy_cells:
+        label: Strategy Cells (2×2 Grid)
+        type: structure
+        min: 4
+        max: 4
+        fields:
+          number:
+            label: Cell Number Tag (e.g. 01 // Outcome vs. Effort)
+            type: text
+          title:
+            label: Cell Title
+            type: text
+          body:
+            label: Cell Body
+            type: textarea
+            size: medium
+
+  # ─── AI CONSULTANT ──────────────────────────────────────────────────────────
+  consultant:
+    label: AI Consultant
+    icon: sparkling
+    fields:
+      consultant_label:
+        label: Section Label
+        type: text
+        default: ✨ AI Modernization Architect
+      consultant_heading:
+        label: Left Column Heading
+        type: writer
+        inline: false
+        nodes:
+          - heading2
+        default: "Design your Mission Roadmap."
+      consultant_intro:
+        label: Left Column Intro Text
+        type: textarea
+      consultant_input_label:
+        label: AI Form Input Label
+        type: text
+        default: Describe your technical challenge
+      consultant_input_placeholder:
+        label: AI Form Input Placeholder
+        type: text
+        default: "e.g. Modernizing CMS data ingestion with FedRAMP security..."
+      consultant_button_text:
+        label: AI Submit Button Text
+        type: text
+        default: Generate Roadmap ✨
+      # Gemini API key and system prompt — to be configured later via site/config/config.php
+
+  # ─── FOOTER ─────────────────────────────────────────────────────────────────
+  footer:
+    label: Footer
+    icon: book
+    fields:
+      footer_company:
+        label: Company Name
+        type: text
+        default: Westport Partners
+      footer_tagline:
+        label: Tagline
+        type: textarea
+        size: small
+        default: >
+          AI-augmented engineering for federal missions.
+          Performance. Accountability. Delivery.
+      footer_solutions_links:
+        label: Solutions Column Links
+        type: structure
+        fields:
+          label:
+            label: Link Label
+            type: text
+          anchor:
+            label: Anchor or URL
+            type: text
+      footer_company_links:
+        label: Company Column Links
+        type: structure
+        fields:
+          label:
+            label: Link Label
+            type: text
+          anchor:
+            label: Anchor or URL
+            type: text
+      footer_cage:
+        label: CAGE Code
+        type: text
+        default: "CAGE: 98H25"
+        help: 'Include the label, e.g. "CAGE: 98H25"'
+      footer_uei:
+        label: UEI
+        type: text
+        default: "UEI: WP-FEDERAL-01"
+        help: 'Include the label, e.g. "UEI: WP-FEDERAL-01"'
+      footer_compliance_links:
+        label: Compliance Column Links
+        type: structure
+        fields:
+          label:
+            label: Link Label
+            type: text
+          url:
+            label: URL
+            type: url
+      footer_watermark:
+        label: Large Watermark Text
+        type: text
+        default: WP.FEDERAL
+      footer_location:
+        label: Location Line
+        type: text
+        default: Operating out of Annapolis, MD
+      footer_copyright:
+        label: Copyright Line
+        type: text
+        default: © 2026 Westport Partners LLC. All Rights Reserved.

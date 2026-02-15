@@ -1,0 +1,295 @@
+title: Landing
+icon: 🏔️
+tabs:
+
+  # ─── NAV ────────────────────────────────────────────────────────────────────
+  nav:
+    label: Navigation
+    icon: menu
+    fields:
+      nav_logo:
+        label: Company Name
+        type: text
+        default: Westport Partners
+        required: true
+      nav_cta_text:
+        label: Nav CTA Button Text
+        type: text
+        default: Contact
+      nav_cta_link:
+        label: Nav CTA Anchor (e.g. #contact)
+        type: text
+        default: "#contact"
+
+  # ─── HERO ───────────────────────────────────────────────────────────────────
+  hero:
+    label: Hero
+    icon: play-circle
+    fields:
+      hero_video:
+        label: Background Video
+        type: files
+        query: page.files
+        uploads: true
+        accept:
+          mime: video/mp4
+        max: 1
+        help: Upload an MP4 video. Recommended size — under 10MB.
+      hero_title:
+        label: Hero Title
+        type: writer
+        inline: true
+        marks:
+          - italic    # Allows your highlight() function to work
+        nodes: false  # Disables <h2> and <p> tags so it doesn't break your <h1>
+        default: "At the Apex of <br>AI-Augmented Design"
+        help: >
+          Writer field — <p> tags are stripped on output.
+          Use line breaks for <br>. Italic renders as .highlight span.
+      hero_cta_text:
+        label: CTA Button Label
+        type: text
+        default: Explore Custom Solutions ✨
+      hero_cta_link:
+        label: CTA Button Anchor
+        type: text
+        default: "#consultant"
+
+  # ─── MISSION ────────────────────────────────────────────────────────────────
+  mission:
+    label: Mission
+    icon: star
+    fields:
+      mission_label:
+        label: Section Label
+        type: text
+        default: The Mission
+        help: Number prefix (01 /) is auto-generated from section order.
+      mission_body:
+        label: Mission Statement
+        type: writer
+        inline: false
+        help: >
+          Italicise words to render them as dimmed highlight spans with hover effect.
+
+  # ─── SOLUTIONS ──────────────────────────────────────────────────────────────
+  solutions:
+    label: Solutions
+    icon: layers
+    fields:
+      solutions_label:
+        label: Section Label
+        type: text
+        default: Solutions & Delivery
+        help: Number prefix (02 /) is auto-generated from section order.
+      solutions_cards:
+        label: Service Cards
+        type: structure
+        min: 1
+        max: 6
+        fields:
+          category:
+            label: Category Tag
+            type: text
+            placeholder: DevSecOps Engineering
+          title:
+            label: Card Title
+            type: text
+            placeholder: AI-Augmented Pods
+          body:
+            label: Body Text
+            type: textarea
+            size: medium
+          tags:
+            label: Tech Tags (one per line, max 4)
+            type: textarea
+            size: small
+            help: "One tag per line, max 4. e.g: // CI/CD Automation"
+
+  # ─── STRATEGY ───────────────────────────────────────────────────────────────
+  strategy:
+    label: Strategy
+    icon: diagram
+    fields:
+      strategy_label:
+        label: Section Label
+        type: text
+        default: Strategy & Philosophy
+        help: Number prefix (03 /) is auto-generated from section order.
+      strategy_heading:
+        label: Section Heading
+        type: writer
+        inline: false
+        nodes:
+          - heading2
+        default: "Reimagining Federal Delivery."
+        help: Italicise words for the dimmed highlight effect.
+      strategy_cells:
+        label: Strategy Cells (2×2 Grid)
+        type: structure
+        min: 4
+        max: 4
+        fields:
+          title:
+            label: Cell Title
+            type: text
+          body:
+            label: "Collapsed Body — visible in grid before click"
+            type: textarea
+            size: medium
+            help: 1–2 sentences. Visible in the 2×2 grid at all times.
+          expanded_body:
+            label: "Expanded Body — left column, visible after click"
+            type: textarea
+            size: medium
+            help: Paragraph shown in the left column when the cell is clicked open.
+          expanded_items:
+            label: "Expanded List — left column, visible after click"
+            type: textarea
+            size: small
+            help: "One item per line. e.g: > FIXED-PRICE SPRINTS"
+          cell_media_type:
+            label: "Right Column Media Type"
+            type: select
+            default: none
+            options:
+              none: None — left column full width
+              image: Image
+              video: Video (MP4)
+              gallery: Gallery (crossfade slideshow)
+
+          cell_image:
+            label: "Image — full-bleed cover"
+            type: files
+            query: page.files
+            uploads: true
+            accept:
+              mime: image/jpeg, image/png, image/webp
+            max: 1
+            help: Portrait or square crop recommended, min 1200px tall.
+            when:
+              cell_media_type: image
+
+          cell_video:
+            label: "Video — autoplaying MP4"
+            type: files
+            query: page.files
+            uploads: true
+            accept:
+              mime: video/mp4
+            max: 1
+            help: Plays muted and looped. Keep under 10MB.
+            when:
+              cell_media_type: video
+
+          cell_gallery:
+            label: "Gallery — multiple images (crossfade, 3s interval)"
+            type: files
+            query: page.files
+            uploads: true
+            accept:
+              mime: image/jpeg, image/png, image/webp
+            help: Upload multiple images. They will cycle automatically.
+            when:
+              cell_media_type: gallery
+
+  # ─── AI CONSULTANT ──────────────────────────────────────────────────────────
+  consultant:
+    label: AI Consultant
+    icon: sparkling
+    fields:
+      consultant_label:
+        label: Section Label
+        type: text
+        default: ✨ AI Modernization Architect
+        help: Number prefix (04 /) is auto-generated from section order.
+      consultant_heading:
+        label: Left Column Heading
+        type: writer
+        inline: false
+        nodes:
+          - heading2
+        default: "Design your Mission Roadmap."
+        help: Italicise words for the dimmed highlight effect.
+      consultant_intro:
+        label: Left Column Intro Text
+        type: textarea
+      consultant_input_label:
+        label: AI Form Input Label
+        type: text
+        default: Describe your technical challenge
+      consultant_input_placeholder:
+        label: AI Form Input Placeholder
+        type: text
+        default: "e.g. Modernizing CMS data ingestion with FedRAMP security..."
+      consultant_button_text:
+        label: AI Submit Button Text
+        type: text
+        default: Generate Roadmap ✨
+
+  # ─── FOOTER ─────────────────────────────────────────────────────────────────
+  footer:
+    label: Footer
+    icon: book
+    fields:
+      footer_company:
+        label: Company Name
+        type: text
+        default: Westport Partners
+      footer_tagline:
+        label: Tagline
+        type: textarea
+        size: small
+        default: >
+          AI-augmented engineering for federal missions.
+          Performance. Accountability. Delivery.
+      footer_solutions_links:
+        label: Solutions Column Links
+        type: structure
+        fields:
+          label:
+            label: Link Label
+            type: text
+          anchor:
+            label: Anchor or URL
+            type: text
+      footer_company_links:
+        label: Company Column Links
+        type: structure
+        fields:
+          label:
+            label: Link Label
+            type: text
+          anchor:
+            label: Anchor or URL
+            type: text
+      footer_cage:
+        label: CAGE Code
+        type: text
+        default: "CAGE: 98H25"
+      footer_uei:
+        label: UEI
+        type: text
+        default: "UEI: WP-FEDERAL-01"
+      footer_compliance_links:
+        label: Compliance Column Links
+        type: structure
+        fields:
+          label:
+            label: Link Label
+            type: text
+          url:
+            label: URL
+            type: url
+      footer_watermark:
+        label: Large Watermark Text
+        type: text
+        default: WP.FEDERAL
+      footer_location:
+        label: Location Line
+        type: text
+        default: Operating out of Annapolis, MD
+      footer_copyright:
+        label: Copyright Line
+        type: text
+        default: © 2026 Westport Partners LLC. All Rights Reserved.

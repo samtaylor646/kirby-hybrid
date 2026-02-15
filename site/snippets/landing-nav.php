@@ -7,6 +7,19 @@ $landingPage = $site->find('landing') ?? $pages->first();
 
 $logoType = $landingPage->nav_logo_type()->or('text')->value();
 
+// ── Resolve logo height ───────────────────────────────────────────────────────
+$heightPresets = ['sm' => '24px', 'md' => '32px', 'lg' => '48px', 'xl' => '64px'];
+
+$imageHeightPreset = $landingPage->nav_logo_image_height_preset()->or('md')->value();
+$imageHeight = $imageHeightPreset === 'custom'
+    ? ($landingPage->nav_logo_image_height_custom()->or('32')->value()) . 'px'
+    : ($heightPresets[$imageHeightPreset] ?? '32px');
+
+$bothHeightPreset = $landingPage->nav_logo_both_height_preset()->or('md')->value();
+$bothHeight = $bothHeightPreset === 'custom'
+    ? ($landingPage->nav_logo_both_height_custom()->or('32')->value()) . 'px'
+    : ($heightPresets[$bothHeightPreset] ?? '32px');
+
 // ── Resolve spacing values (only used for 'both' mode) ────────────────────────
 $gapPresets = ['sm' => '4px', 'md' => '8px', 'lg' => '16px', 'xl' => '24px'];
 $padPresets = ['none' => '0px', 'sm' => '4px', 'md' => '8px', 'lg' => '16px'];
@@ -27,8 +40,8 @@ $marValue  = $marPreset === 'custom'
     ? ($landingPage->nav_logo_margin_custom()->or('0')->value()) . 'px'
     : ($marPresets[$marPreset] ?? '0px');
 
-$position = $landingPage->nav_logo_text_position()->or('right')->value();
-$flexDir  = match($position) {
+$position   = $landingPage->nav_logo_text_position()->or('right')->value();
+$flexDir    = match($position) {
     'left'  => 'row-reverse',
     'right' => 'row',
     'above' => 'column-reverse',
@@ -52,7 +65,7 @@ $innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};
                     src="<?= $logoFile->url() ?>"
                     alt="<?= $landingPage->nav_logo()->or($site->title())->html() ?>"
                     class="nav-logo-image"
-                    style="height:2rem;width:auto;display:block;"
+                    style="height:<?= $imageHeight ?>;width:auto;display:block;"
                 >
             <?php else: ?>
                 <?= $landingPage->nav_logo()->or($site->title())->html() ?>
@@ -66,7 +79,7 @@ $innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};
                         src="<?= $logoFile->url() ?>"
                         alt="<?= $landingPage->nav_logo_both_text()->or($site->title())->html() ?>"
                         class="nav-logo-image"
-                        style="height:2rem;width:auto;display:block;"
+                        style="height:<?= $bothHeight ?>;width:auto;display:block;"
                     >
                 <?php endif ?>
                 <span class="nav-logo-text">

@@ -2,7 +2,7 @@ Title: Landing
 
 ----
 
-Nav-logo-type: image
+Nav-logo-type: text
 
 ----
 
@@ -10,15 +10,31 @@ Nav-logo: Westport Partners
 
 ----
 
-Nav-logo-both-text: Westport Partners
+Nav-logo-both-text: 
 
 ----
 
-Nav-logo-image: - file://givrzly0y49nkgky
+Nav-logo-image: 
 
 ----
 
-Nav-logo-image-both: - file://givrzly0y49nkgky
+Nav-logo-image-height-preset: md
+
+----
+
+Nav-logo-image-height-custom: 
+
+----
+
+Nav-logo-image-both: 
+
+----
+
+Nav-logo-both-height-preset: md
+
+----
+
+Nav-logo-both-height-custom: 
 
 ----
 
@@ -118,7 +134,7 @@ Solutions-cards:
 
 ----
 
-Editorial-blocks: 
+Editorial-blocks: []
 
 ----
 

@@ -39,6 +39,28 @@ tabs:
         help: SVG recommended for sharpness at all sizes.
         when:
           nav_logo_type: image
+      nav_logo_image_height_preset:
+        label: Logo Height
+        type: select
+        default: md
+        options:
+          sm: Small (24px)
+          md: Medium (32px)
+          lg: Large (48px)
+          xl: Extra large (64px)
+          custom: Custom
+        when:
+          nav_logo_type: image
+      nav_logo_image_height_custom:
+        label: Logo Height — Custom Value
+        type: number
+        min: 8
+        max: 200
+        default: 32
+        after: px
+        help: Overrides the preset above.
+        when:
+          nav_logo_type: image
       nav_logo_image_both:
         label: Logo Image
         type: files
@@ -48,6 +70,28 @@ tabs:
           mime: image/svg+xml, image/png, image/webp, image/jpeg
         max: 1
         help: SVG recommended for sharpness at all sizes.
+        when:
+          nav_logo_type: both
+      nav_logo_both_height_preset:
+        label: Logo Height
+        type: select
+        default: md
+        options:
+          sm: Small (24px)
+          md: Medium (32px)
+          lg: Large (48px)
+          xl: Extra large (64px)
+          custom: Custom
+        when:
+          nav_logo_type: both
+      nav_logo_both_height_custom:
+        label: Logo Height — Custom Value
+        type: number
+        min: 8
+        max: 200
+        default: 32
+        after: px
+        help: Overrides the preset above.
         when:
           nav_logo_type: both
       nav_logo_text_position:

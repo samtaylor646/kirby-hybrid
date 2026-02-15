@@ -186,18 +186,11 @@ tabs:
         help: Number prefix (01 /) is auto-generated from section order.
       mission_body:
         label: Mission Statement
-        type: layout
-        layouts:
-          - "1/1"
-          - "1/2, 1/2"
-        fieldsets:
-          - heading
-          - text
-          - image
-          - quote
+        type: writer
+        inline: false
         help: >
-          Use heading and text blocks to compose the mission statement.
-          Italicise words in text blocks to render as dimmed highlight spans.
+          Italicise words to render as dimmed highlight spans with hover effect.
+          This field outputs as a styled display heading on the live page.
 
   # ─── SOLUTIONS ──────────────────────────────────────────────────────────────
   solutions:

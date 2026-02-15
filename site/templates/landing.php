@@ -34,76 +34,7 @@ function highlight(string $html): string {
 <div id="cursor"></div>
 <div id="cursor-follower"></div>
 
-<?php /* ── NAV ──────────────────────────────────────────────────────────────── */ ?>
-<?php
-$logoType = $page->nav_logo_type()->value();
-
-// ── Resolve gap ──────────────────────────────────────────────────────────────
-$gapPresets  = ['sm' => '4px', 'md' => '8px', 'lg' => '16px', 'xl' => '24px'];
-$gapPreset   = $page->nav_logo_gap_preset()->value() ?? 'md';
-$gapValue    = $gapPreset === 'custom'
-    ? ($page->nav_logo_gap_custom()->value() ?? '8') . 'px'
-    : ($gapPresets[$gapPreset] ?? '8px');
-
-// ── Resolve padding ───────────────────────────────────────────────────────────
-$padPresets  = ['none' => '0px', 'sm' => '4px', 'md' => '8px', 'lg' => '16px'];
-$padPreset   = $page->nav_logo_padding_preset()->value() ?? 'none';
-$padValue    = $padPreset === 'custom'
-    ? ($page->nav_logo_padding_custom()->value() ?? '0') . 'px'
-    : ($padPresets[$padPreset] ?? '0px');
-
-// ── Resolve margin ────────────────────────────────────────────────────────────
-$marPresets  = ['none' => '0px', 'sm' => '8px', 'md' => '16px', 'lg' => '24px'];
-$marPreset   = $page->nav_logo_margin_preset()->value() ?? 'none';
-$marValue    = $marPreset === 'custom'
-    ? ($page->nav_logo_margin_custom()->value() ?? '0') . 'px'
-    : ($marPresets[$marPreset] ?? '0px');
-
-// ── Resolve flex direction from text position ─────────────────────────────────
-$position    = $page->nav_logo_text_position()->value() ?? 'right';
-$flexDir     = match($position) {
-    'left'  => 'row-reverse',
-    'right' => 'row',
-    'above' => 'column-reverse',
-    'below' => 'column',
-    default => 'row',
-};
-$alignItems  = ($position === 'left' || $position === 'right') ? 'center' : 'flex-start';
-
-$logoStyle   = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};gap:{$gapValue};padding:{$padValue};margin:{$marValue};";
-?>
-<nav class="landing-nav" id="nav">
-    <a href="/" class="nav-logo" style="<?= $logoType === 'both' ? 'display:flex;align-items:center;' : '' ?>">
-        <?php if ($logoType === 'image' || $logoType === 'both'): ?>
-            <?php
-            $logoFile = $logoType === 'both'
-                ? $page->nav_logo_image_both()->toFile()
-                : $page->nav_logo_image()->toFile();
-            ?>
-            <?php if ($logoType === 'both' && $logoFile): ?>
-                <span class="nav-logo-inner" style="<?= $logoStyle ?>">
-                    <img
-                        src="<?= $logoFile->url() ?>"
-                        alt="<?= $page->nav_logo_both_text()->html() ?>"
-                        class="nav-logo-image"
-                    >
-                    <span class="nav-logo-text"><?= $page->nav_logo_both_text()->html() ?></span>
-                </span>
-            <?php elseif ($logoFile): ?>
-                <img
-                    src="<?= $logoFile->url() ?>"
-                    alt="Logo"
-                    class="nav-logo-image"
-                >
-            <?php endif ?>
-        <?php else: ?>
-            <?= $page->nav_logo()->html() ?>
-        <?php endif ?>
-    </a>
-    <a href="<?= $page->nav_cta_link()->html() ?>" class="btn-magnetic nav-cta">
-        <?= $page->nav_cta_text()->html() ?>
-    </a>
-</nav>
+<?php snippet('landing-nav') ?>
 
 <?php /* ── HERO ─────────────────────────────────────────────────────────────── */ ?>
 <header class="hero">
@@ -141,13 +72,9 @@ $logoStyle   = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems}
         <span class="label reveal">
             01 / <?= $page->mission_label()->html() ?>
         </span>
-        <?php foreach ($page->mission_body()->toLayouts() as $layout): ?>
-        <?php foreach ($layout->columns() as $column): ?>
-        <?php foreach ($column->blocks() as $block): ?>
-        <?php snippet('blocks/' . $block->type(), ['block' => $block]) ?>
-        <?php endforeach ?>
-        <?php endforeach ?>
-        <?php endforeach ?>
+        <h2 class="display-text reveal">
+            <?= highlight($page->mission_body()->value()) ?>
+        </h2>
     </section>
 
     <?php /* ── SOLUTIONS ────────────────────────────────────────────────────── */ ?>
@@ -322,41 +249,7 @@ $logoStyle   = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems}
 
 </main>
 
-<?php /* ── FOOTER ───────────────────────────────────────────────────────────── */ ?>
-<footer class="landing-footer">
-    <div class="max-w-7xl mx-auto px-8 py-16">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <p class="footer-company"><?= $page->footer_company()->html() ?></p>
-                <p class="footer-tagline"><?= $page->footer_tagline()->html() ?></p>
-            </div>
-            <div class="footer-links">
-                <p class="footer-col-label">Solutions</p>
-                <?php foreach ($page->footer_solutions_links()->toStructure() as $link): ?>
-                <a href="#<?= $link->anchor()->html() ?>"><?= $link->label()->html() ?></a>
-                <?php endforeach ?>
-            </div>
-            <div class="footer-links">
-                <p class="footer-col-label">Company</p>
-                <?php foreach ($page->footer_company_links()->toStructure() as $link): ?>
-                <a href="<?= $link->anchor()->html() ?>"><?= $link->label()->html() ?></a>
-                <?php endforeach ?>
-            </div>
-            <div class="footer-compliance">
-                <p class="footer-cage"><?= $page->footer_cage()->html() ?></p>
-                <p class="footer-uei"><?= $page->footer_uei()->html() ?></p>
-                <?php foreach ($page->footer_compliance_links()->toStructure() as $link): ?>
-                <a href="<?= $link->url()->html() ?>"><?= $link->label()->html() ?></a>
-                <?php endforeach ?>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span class="footer-location"><?= $page->footer_location()->html() ?></span>
-            <span class="footer-copyright"><?= $page->footer_copyright()->html() ?></span>
-            <span class="footer-watermark"><?= $page->footer_watermark()->html() ?></span>
-        </div>
-    </div>
-</footer>
+<?php snippet('landing-footer') ?>
 
 </body>
 </html>

@@ -78,7 +78,7 @@ Mission-label: The Mission
 
 ----
 
-Mission-body: [{"attrs":[],"columns":[{"blocks":[{"content":{"text":"<p>Federal agencies face a <em>modernization crisis</em>. We bridge the gap between <em>ambitious technical mandates</em> and legacy budget constraints using <em>AI-augmented delivery pods</em>. Built for mission-critical infrastructure.</p>"},"id":"mission-text-001","isHidden":false,"type":"text"}],"id":"mission-col-001","width":"1/1"}],"id":"mission-row-001"}]
+Mission-body: <p>Federal agencies face a <em>modernization crisis</em>. We bridge the gap between <em>ambitious technical mandates</em> and legacy budget constraints using <em>AI-augmented delivery pods</em>. Built for mission-critical infrastructure.</p>
 
 ----
 
@@ -118,7 +118,7 @@ Solutions-cards:
 
 ----
 
-Editorial-blocks: 
+Editorial-blocks: []
 
 ----
 

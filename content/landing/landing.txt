@@ -2,7 +2,51 @@ Title: Landing
 
 ----
 
+Nav-logo-type: text
+
+----
+
 Nav-logo: Westport Partners
+
+----
+
+Nav-logo-both-text: 
+
+----
+
+Nav-logo-image: 
+
+----
+
+Nav-logo-image-both: 
+
+----
+
+Nav-logo-text-position: right
+
+----
+
+Nav-logo-gap-preset: md
+
+----
+
+Nav-logo-gap-custom: 
+
+----
+
+Nav-logo-padding-preset: none
+
+----
+
+Nav-logo-padding-custom: 
+
+----
+
+Nav-logo-margin-preset: none
+
+----
+
+Nav-logo-margin-custom: 
 
 ----
 
@@ -10,7 +54,7 @@ Nav-cta-text: Contact
 
 ----
 
-Nav-cta-link: 
+Nav-cta-link: #contact
 
 ----
 
@@ -34,7 +78,7 @@ Mission-label: The Mission
 
 ----
 
-Mission-body: <p>Federal agencies face a <em>modernization crisis</em>. We bridge the gap between <em>ambitious technical mandates</em> and legacy budget constraints using <em>AI-augmented delivery pods</em>. Built for mission-critical infrastructure.</p>
+Mission-body: [{"attrs":[],"columns":[{"blocks":[{"content":{"text":"<p>Federal agencies face a <em>modernization crisis</em>. We bridge the gap between <em>ambitious technical mandates</em> and legacy budget constraints using <em>AI-augmented delivery pods</em>. Built for mission-critical infrastructure.</p>"},"id":"mission-text-001","isHidden":false,"type":"text"}],"id":"mission-col-001","width":"1/1"}],"id":"mission-row-001"}]
 
 ----
 
@@ -74,11 +118,15 @@ Solutions-cards:
 
 ----
 
+Editorial-blocks: []
+
+----
+
 Strategy-label: Strategy & Philosophy
 
 ----
 
-Strategy-heading: <p><em>Reimagining</em> Federal Delivery.</p>
+Strategy-heading: <h2><em>Reimagining</em> Federal Delivery.</h2>
 
 ----
 
@@ -103,17 +151,15 @@ Strategy-cells:
     - file://bkslknktgzs0vn79
   cell_video: [ ]
   cell_gallery: [ ]
-  number: 01 // Outcome vs. Effort
 - 
   title: Security is Engineering
   body: "Security is not a final check; it's a code requirement. Our engineers are DevSecOps certified, ensuring that every line of code passed to production has already undergone static and dynamic analysis."
   expanded_body: ""
   expanded_items: ""
-  cell_media_type: ""
+  cell_media_type: none
   cell_image: [ ]
   cell_video: [ ]
   cell_gallery: [ ]
-  number: 02 // Shift-Left Security
 - 
   title: Real-Time Dashboards
   body: >
@@ -124,11 +170,10 @@ Strategy-cells:
     project velocity and mission readiness.
   expanded_body: ""
   expanded_items: ""
-  cell_media_type: ""
+  cell_media_type: none
   cell_image: [ ]
   cell_video: [ ]
   cell_gallery: [ ]
-  number: 03 // Radical Transparency
 - 
   title: Maximum Engineering Density
   body: >
@@ -139,11 +184,10 @@ Strategy-cells:
     spent on high-end technical delivery.
   expanded_body: ""
   expanded_items: ""
-  cell_media_type: ""
+  cell_media_type: none
   cell_image: [ ]
   cell_video: [ ]
   cell_gallery: [ ]
-  number: 04 // Lean Operations
 
 ----
 
@@ -151,7 +195,7 @@ Consultant-label: ✨ AI Modernization Architect
 
 ----
 
-Consultant-heading: <p>Design your Mission Roadmap.</p>
+Consultant-heading: <h2>Design your Mission Roadmap.</h2>
 
 ----
 
@@ -225,7 +269,7 @@ Footer-compliance-links:
 
 - 
   label: Security Policy
-  url: http://site.com/security-policyhtml
+  url: http://site.com/security-policy.html
 - 
   label: Terms
   url: http://site.com/term.html

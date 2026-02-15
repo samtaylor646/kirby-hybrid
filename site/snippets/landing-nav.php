@@ -20,7 +20,7 @@ $bothHeight = $bothHeightPreset === 'custom'
     ? ($landingPage->nav_logo_both_height_custom()->or('32')->value()) . 'px'
     : ($heightPresets[$bothHeightPreset] ?? '32px');
 
-// ── Resolve spacing values (only used for 'both' mode) ────────────────────────
+// ── Resolve spacing (both mode only) ─────────────────────────────────────────
 $gapPresets = ['sm' => '4px', 'md' => '8px', 'lg' => '16px', 'xl' => '24px'];
 $padPresets = ['none' => '0px', 'sm' => '4px', 'md' => '8px', 'lg' => '16px'];
 $marPresets = ['none' => '0px', 'sm' => '8px', 'md' => '16px', 'lg' => '24px'];
@@ -48,12 +48,14 @@ $flexDir    = match($position) {
     'below' => 'column',
     default => 'row',
 };
-$alignItems = ($position === 'left' || $position === 'right') ? 'center' : 'flex-start';
-$innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};gap:{$gapValue};padding:{$padValue};margin:{$marValue};";
+$isHorizontal = ($position === 'left' || $position === 'right');
+$alignItems   = $isHorizontal ? 'center' : 'flex-start';
+$innerStyle   = "display:inline-flex;flex-direction:{$flexDir};align-items:{$alignItems};gap:{$gapValue};padding:{$padValue};margin:{$marValue};";
 ?>
-<nav id="mainNav" class="fixed top-0 w-full px-6 lg:px-10 py-0 z-100 flex justify-between items-center bg-linear-to-b from-black/50 to-transparent transition-all duration-300 ease-in-out">
+<nav id="mainNav" class="fixed top-0 w-full px-6 lg:px-10 py-0 z-100 flex justify-between items-center min-h-[64px] bg-linear-to-b from-black/50 to-transparent transition-all duration-300 ease-in-out">
 
-    <a href="<?= $site->url() ?>" class="text-sm font-bold tracking-tighter uppercase">
+    <?php /* ── LOGO ─────────────────────────────────────────────────────────── */ ?>
+    <a href="<?= $site->url() ?>" class="flex items-center shrink-0 text-sm font-bold tracking-tighter uppercase no-underline text-white">
 
         <?php if ($logoType === 'text'): ?>
             <?= $landingPage->nav_logo()->or($site->title())->html() ?>
@@ -64,8 +66,8 @@ $innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};
                 <img
                     src="<?= $logoFile->url() ?>"
                     alt="<?= $landingPage->nav_logo()->or($site->title())->html() ?>"
-                    class="nav-logo-image"
-                    style="height:<?= $imageHeight ?>;width:auto;display:block;"
+                    class="block w-auto"
+                    style="height:<?= $imageHeight ?>;"
                 >
             <?php else: ?>
                 <?= $landingPage->nav_logo()->or($site->title())->html() ?>
@@ -78,8 +80,8 @@ $innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};
                     <img
                         src="<?= $logoFile->url() ?>"
                         alt="<?= $landingPage->nav_logo_both_text()->or($site->title())->html() ?>"
-                        class="nav-logo-image"
-                        style="height:<?= $bothHeight ?>;width:auto;display:block;"
+                        class="block w-auto"
+                        style="height:<?= $bothHeight ?>;"
                     >
                 <?php endif ?>
                 <span class="nav-logo-text">
@@ -91,16 +93,18 @@ $innerStyle = "display:flex;flex-direction:{$flexDir};align-items:{$alignItems};
 
     </a>
 
-    <div class="hidden md:flex gap-10 text-[10px] uppercase font-bold tracking-[0.2em] opacity-100 pointer-events-auto">
-        <a href="#mission" class="hover:opacity-60 transition-opacity no-underline text-white">Mission</a>
-        <a href="#solutions" class="hover:opacity-60 transition-opacity no-underline text-white">Solutions</a>
-        <a href="#strategy" class="hover:opacity-60 transition-opacity no-underline text-white">Strategy</a>
+    <?php /* ── ANCHOR LINKS ─────────────────────────────────────────────────── */ ?>
+    <div class="hidden md:flex gap-10 items-center text-[10px] uppercase font-bold tracking-[0.2em]">
+        <a href="#mission"    class="hover:opacity-60 transition-opacity no-underline text-white">Mission</a>
+        <a href="#solutions"  class="hover:opacity-60 transition-opacity no-underline text-white">Solutions</a>
+        <a href="#strategy"   class="hover:opacity-60 transition-opacity no-underline text-white">Strategy</a>
         <a href="#consultant" class="hover:opacity-60 transition-opacity no-underline text-white">✨ AI Architect</a>
     </div>
 
+    <?php /* ── CTA ──────────────────────────────────────────────────────────── */ ?>
     <a
         href="<?= $landingPage->nav_cta_link()->or('#contact')->html() ?>"
-        class="btn-magnetic py-2! px-6! text-[9px]!"
+        class="btn-magnetic py-2! px-6! text-[9px]! shrink-0"
     >
         <?= $landingPage->nav_cta_text()->or('Contact')->html() ?>
     </a>

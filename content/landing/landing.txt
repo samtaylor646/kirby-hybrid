@@ -14,19 +14,19 @@ Nav-logo-both-text: Westport Partners
 
 ----
 
-Nav-logo-image: - file://givrzly0y49nkgky
+Nav-logo-image: - file://9snt8wmcbmy1yu2a
 
 ----
 
-Nav-logo-image-height-preset: xl
+Nav-logo-image-height-preset: custom
 
 ----
 
-Nav-logo-image-height-custom: 
+Nav-logo-image-height-custom: 80
 
 ----
 
-Nav-logo-image-both: - file://givrzly0y49nkgky
+Nav-logo-image-both: 
 
 ----
 
@@ -163,8 +163,7 @@ Strategy-cells:
     > MILESTONE-BASED BILLING
     > SHARED RISK FRAMEWORKS
   cell_media_type: image
-  cell_image:
-    - file://bkslknktgzs0vn79
+  cell_image: [ ]
   cell_video: [ ]
   cell_gallery: [ ]
 - 

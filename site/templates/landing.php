@@ -133,7 +133,7 @@ function highlight(string $html): string {
                     03 / <?= $page->strategy_label()->html() ?>
                 </span>
                 <h2 class="text-6xl font-light mb-6 tracking-tighter reveal">
-                    <?= highlight($page->strategy_heading()->value()) ?>
+                    <?= highlight(preg_replace('#^<h2[^>]*>(.*)</h2>$#is', '$1', trim($page->strategy_heading()->value()))) ?>
                 </h2>
             </div>
             <div class="strategy-grid reveal" id="strategyGrid">
@@ -213,7 +213,7 @@ function highlight(string $html): string {
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <div class="reveal">
                     <h2 class="text-6xl font-light mb-10 leading-tight tracking-tight">
-                        <?= highlight($page->consultant_heading()->value()) ?>
+                        <?= highlight(preg_replace('#^<h2[^>]*>(.*)</h2>$#is', '$1', trim($page->consultant_heading()->value()))) ?>
                     </h2>
                     <p class="text-white/50 text-xl leading-relaxed mb-10">
                         <?= $page->consultant_intro()->html() ?>

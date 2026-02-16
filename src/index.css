@@ -1,6 +1,6 @@
 /**
  * src/index.css — Vite CSS Entry Point
- * Tailwind 4 / Kirby 5.3
+ * Westport Partners / Tailwind 4 / Kirby 5.3
  */
 
 @import "tailwindcss";
@@ -41,26 +41,16 @@
     overflow-x:             hidden;
     width:                  100%;
   }
-
-  /* Ensure main takes up full width but allows children to define constraints */
-  main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 @layer components {
 
   /* ── Layout Container ───────────────────────────────────────────────────── */
-  /* Use this for everything EXCEPT the Hero Block */
   .container {
     width: 100%;
     max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 
   /* ── Reveal ─────────────────────────────────────────────────────────────── */
@@ -71,7 +61,7 @@
   }
   .reveal.active { opacity: 1; transform: translateY(0); }
 
-  /* ── Existing Hero (Keep for Home/Other) ────────────────────────────────── */
+  /* ── Hero (Existing Original) ───────────────────────────────────────────── */
   .hero {
     position:        relative;
     height:          100vh;
@@ -83,20 +73,60 @@
     justify-content: center;
   }
 
-  /* ── New Block-Based Hero (Full-Width Breakout) ─────────────────────────── */
+  .hero-video {
+    position:   absolute;
+    top:        50%;
+    left:       50%;
+    min-width:  100%;
+    min-height: 100%;
+    width:      105%;
+    height:     105%;
+    transform:  translate(-50%, -50%) scale(1.2);
+    object-fit: cover;
+    z-index:    0;
+    filter:     brightness(0.9) grayscale(0.05);
+  }
+
+  .hero-overlay {
+    position:   absolute;
+    inset:      0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.75)   0%,
+      rgba(0,0,0,0.1)   25%,
+      rgba(0,0,0,0.1)   60%,
+      rgba(10,10,10,0.8) 85%,
+      #0a0a0a           100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position:   relative;
+    z-index:    10;
+    max-width:  1000px;
+    padding:    0 2rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 9vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 4.0rem;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  }
+
+  /* ── Hero Block (New Block-System Version) ─────────────────────────────── */
+  /* Uses unique class names to prevent conflicts with .hero / .hero-video */
   .hero-block {
     position: relative;
-    /* The magic combo for edge-to-edge even if inside a container */
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    
-    overflow: hidden;
+    width: 100%;
     background: #000;
     display: flex;
     align-items: center;
+    overflow: hidden;
   }
 
   .hero-block__media {
@@ -118,10 +148,10 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
-    /* GSAP initial state handled in index.js */
+    /* Handled by GSAP, but set base state */
     opacity: 0;
     transform: translateY(40px);
   }
@@ -132,10 +162,9 @@
     line-height: 1;
     letter-spacing: -0.04em;
     margin-bottom: 2rem;
-    text-shadow: 0 10px 40px rgba(0,0,0,0.6);
   }
 
-  /* ── Remaining CSS ──────────────────────────────────────────────────────── */
+  /* ── Button ─────────────────────────────────────────────────────────────── */
   .btn-magnetic {
     display:         inline-block;
     padding:         1.2rem 2.8rem;
@@ -153,6 +182,13 @@
     cursor:          pointer;
     color:           white;
     text-decoration: none;
+  }
+  .btn-magnetic:hover {
+    background:   #fff;
+    color:        #000;
+    border-color: #fff;
+    transform:    translateY(-5px);
+    box-shadow:   0 15px 30px rgba(0,0,0,0.3);
   }
 
   /* ── AI Panel ───────────────────────────────────────────────────────────── */
@@ -203,8 +239,8 @@
 
   /* FONT: matches home.html */
   .label {
-    font-size:      1rem;
-    font-weight:    400;
+    font-size:      0.65rem;
+    font-weight:    600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color:          rgba(255,255,255,0.3);
@@ -252,7 +288,7 @@
   /* ── Strategy Grid ──────────────────────────────────────────────────────── */
   #strategy {
     background-color: #000000 !important;
-}
+  }
 
   .strategy-grid {
     display:               grid;

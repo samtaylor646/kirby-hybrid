@@ -1,11 +1,12 @@
 <?php snippet('header') ?>
 
-<main>
+
   <?php // Changed field name to heroBlocks to match the blueprint ?>
   <?= $page->heroBlocks()->toBlocks() ?>
 
+<div class="container">
   <?php snippet('layouts', ['field' => $page->layout()]) ?>
-</main>
+</div>
 
 <aside class="contact">
   <div class="container">

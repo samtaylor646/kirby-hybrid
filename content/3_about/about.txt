@@ -2,7 +2,7 @@ Title: About us
 
 ----
 
-Heroblocks: 
+Heroblocks: [{"content":{"title":"At the Apex of AI-Augmented Design","subheading":"","text":"","cta_text":"","cta_link":"","bg_type":"video","image":[],"video":["file://xtdeuzwvncgjzd3u"],"theme":"light","text_align":"center","overlay_opacity":40,"height_mobile":70,"height_desktop":100},"id":"2c752655-4e35-46ae-99e4-e415b7784bc3","isHidden":false,"type":"hero"}]
 
 ----
 

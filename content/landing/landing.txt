@@ -22,7 +22,7 @@ Nav-logo-image-height-preset: custom
 
 ----
 
-Nav-logo-image-height-custom: 80
+Nav-logo-image-height-custom: 78
 
 ----
 
@@ -163,7 +163,8 @@ Strategy-cells:
     > MILESTONE-BASED BILLING
     > SHARED RISK FRAMEWORKS
   cell_media_type: image
-  cell_image: [ ]
+  cell_image:
+    - file://xln5mokun0ui3shs
   cell_video: [ ]
   cell_gallery: [ ]
 - 

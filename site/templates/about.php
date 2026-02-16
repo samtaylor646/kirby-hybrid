@@ -1,10 +1,9 @@
 <?php snippet('header') ?>
 
 <main>
-  <?php // 1. Render the Hero blocks (mainContent) first ?>
-  <?= $page->heroSections()->toBlocks() ?>
+  <?php // Changed field name to heroBlocks to match the blueprint ?>
+  <?= $page->heroBlocks()->toBlocks() ?>
 
-  <?php // 2. Render the modular layouts ?>
   <?php snippet('layouts', ['field' => $page->layout()]) ?>
 </main>
 

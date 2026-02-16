@@ -2,7 +2,7 @@ Title: About us
 
 ----
 
-Maincontent: [{"content":{"title":"apex","subheading":"","text":"","cta_text":"","cta_link":"","bg_type":"video","image":[],"video":["file://xtdeuzwvncgjzd3u"],"theme":"light","text_align":"center","overlay_opacity":40,"height_mobile":70,"height_desktop":100},"id":"adc7ccb9-ef8a-4d0d-a64f-aa74ba70df01","isHidden":false,"type":"hero"}]
+Heroblocks: 
 
 ----
 
@@ -33,6 +33,10 @@ Social:
 - 
   platform: Discord
   url: https://chat.getkirby.com
+
+----
+
+Maincontent: 
 
 ----
 

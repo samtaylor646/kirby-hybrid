@@ -6,10 +6,10 @@ tabs:
     label: Content
     icon: text
     fields:
-      mainContent:
+      # Renaming to heroBlocks forces Kirby to reset the UI for this field
+      heroBlocks:
         label: Page Sections
         type: blocks
-        empty: "Add your Hero section here..."
         fieldsets:
           - hero
       

@@ -141,7 +141,7 @@ function highlight(string $html): string {
                 <div class="strategy-cell" onclick="expandStrategyCell(this)">
                     <div class="close-trigger" onclick="closeStrategyCell(event, this)">Close</div>
                     <div class="cell-main-content">
-                        <span class="text-white/20 font-mono text-xs mb-6 block">
+                        <span class="text-white/50 font-mono text-xs mb-6 block">
                             <?= str_pad($cellIndex, 2, '0', STR_PAD_LEFT) ?> // <?= $cell->title()->html() ?>
                         </span>
                         <h4 class="text-2xl mb-6">

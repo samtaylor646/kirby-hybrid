@@ -1,5 +1,8 @@
 name: Hero Section
 icon: layout
+# Add a preview definition to prevent the Panel from crashing 
+# when trying to render complex styles/scripts in the block list.
+preview: text
 tabs:
   content:
     label: Content

@@ -22,6 +22,7 @@
 ?>
 <?php snippet('header') ?>
 <?php snippet('intro') ?>
+<?= $page->mainContent()->toBlocks() ?>
 <?php snippet('layouts', ['field' => $page->layout()])  ?>
 
 <aside class="contact">

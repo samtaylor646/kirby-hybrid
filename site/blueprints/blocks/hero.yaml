@@ -32,6 +32,7 @@ tabs:
       bg_type:
         label: Background Type
         type: select
+        default: image
         options:
           image: Image
           video: Video
@@ -41,16 +42,12 @@ tabs:
         max: 1
         layout: cards
         help: "Sets the focal point for both Image and Video modes."
-        accept:
-          extension: jpg, jpeg, png, webp
       video:
         label: Background Video
         type: files
         max: 1
         when:
           bg_type: video
-        accept:
-          extension: mp4, webm
   settings:
     label: Design Settings
     fields:
@@ -59,26 +56,16 @@ tabs:
         type: toggles
         default: light
         options:
-          light:
-            text: Light (White)
-            icon: sun
-          dark:
-            text: Dark (Black)
-            icon: moon
+          light: Light
+          dark: Dark
       text_align:
         label: Text Alignment
         type: toggles
         default: center
         options:
-          left:
-            text: Left
-            icon: align-left
-          center:
-            text: Center
-            icon: align-center
-          right:
-            text: Right
-            icon: align-right
+          left: Left
+          center: Center
+          right: Right
       overlay_opacity:
         label: Overlay Intensity
         type: range
@@ -94,7 +81,6 @@ tabs:
         min: 30
         max: 100
         default: 70
-        unit: vh
         width: 1/2
       height_desktop:
         label: Desktop Height (vh)
@@ -102,5 +88,4 @@ tabs:
         min: 30
         max: 100
         default: 100
-        unit: vh
         width: 1/2

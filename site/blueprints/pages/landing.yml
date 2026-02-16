@@ -1,5 +1,6 @@
 title: Landing
 icon: 🏔️
+
 tabs:
 
   # ─── NAV ────────────────────────────────────────────────────────────────────
@@ -7,19 +8,181 @@ tabs:
     label: Navigation
     icon: menu
     fields:
+      nav_logo_type:
+        label: Logo Display
+        type: select
+        default: text
+        options:
+          text: Text only
+          image: Image only
+          both: Image and text
       nav_logo:
         label: Company Name
         type: text
         default: Westport Partners
-        required: true
+        when:
+          nav_logo_type: text
+      nav_logo_both_text:
+        label: Company Name
+        type: text
+        default: Westport Partners
+        when:
+          nav_logo_type: both
+      nav_logo_image:
+        label: Logo Image
+        type: files
+        query: page.files
+        uploads: true
+        accept:
+          mime: image/svg+xml, image/png, image/webp, image/jpeg
+        max: 1
+        help: SVG recommended for sharpness at all sizes.
+        when:
+          nav_logo_type: image
+      nav_logo_image_height_preset:
+        label: Logo Height
+        type: select
+        default: md
+        options:
+          sm: Small (24px)
+          md: Medium (32px)
+          lg: Large (48px)
+          xl: Extra large (64px)
+          custom: Custom
+        when:
+          nav_logo_type: image
+      nav_logo_image_height_custom:
+        label: Logo Height — Custom Value
+        type: number
+        min: 8
+        max: 200
+        default: 32
+        after: px
+        help: Overrides the preset above.
+        when:
+          nav_logo_type: image
+      nav_logo_image_both:
+        label: Logo Image
+        type: files
+        query: page.files
+        uploads: true
+        accept:
+          mime: image/svg+xml, image/png, image/webp, image/jpeg
+        max: 1
+        help: SVG recommended for sharpness at all sizes.
+        when:
+          nav_logo_type: both
+      nav_logo_both_height_preset:
+        label: Logo Height
+        type: select
+        default: md
+        options:
+          sm: Small (24px)
+          md: Medium (32px)
+          lg: Large (48px)
+          xl: Extra large (64px)
+          custom: Custom
+        when:
+          nav_logo_type: both
+      nav_logo_both_height_custom:
+        label: Logo Height — Custom Value
+        type: number
+        min: 8
+        max: 200
+        default: 32
+        after: px
+        help: Overrides the preset above.
+        when:
+          nav_logo_type: both
+      nav_logo_text_position:
+        label: Text Position
+        type: select
+        default: right
+        options:
+          left: Left of image
+          right: Right of image
+          above: Above image
+          below: Below image
+        help: Position of the company name relative to the logo image.
+        when:
+          nav_logo_type: both
+      nav_logo_gap_preset:
+        label: Gap Between Image and Text
+        type: select
+        default: md
+        options:
+          sm: Small (4px)
+          md: Medium (8px)
+          lg: Large (16px)
+          xl: Extra large (24px)
+          custom: Custom
+        when:
+          nav_logo_type: both
+      nav_logo_gap_custom:
+        label: Gap — Custom Value
+        type: number
+        min: 0
+        max: 100
+        default: 8
+        after: px
+        help: Overrides the preset above.
+        when:
+          nav_logo_type: both
+      nav_logo_padding_preset:
+        label: Logo Padding (internal)
+        type: select
+        default: none
+        options:
+          none: None (0px)
+          sm: Small (4px)
+          md: Medium (8px)
+          lg: Large (16px)
+          custom: Custom
+        help: Space inside the logo container, around image and text.
+        when:
+          nav_logo_type: both
+      nav_logo_padding_custom:
+        label: Padding — Custom Value
+        type: number
+        min: 0
+        max: 100
+        default: 0
+        after: px
+        help: Overrides the preset above.
+        when:
+          nav_logo_type: both
+      nav_logo_margin_preset:
+        label: Logo Margin (external)
+        type: select
+        default: none
+        options:
+          none: None (0px)
+          sm: Small (8px)
+          md: Medium (16px)
+          lg: Large (24px)
+          custom: Custom
+        help: Space outside the logo, away from the nav edges.
+        when:
+          nav_logo_type: both
+      nav_logo_margin_custom:
+        label: Margin — Custom Value
+        type: number
+        min: 0
+        max: 100
+        default: 0
+        after: px
+        help: Overrides the preset above.
+        when:
+          nav_logo_type: both
       nav_cta_text:
         label: Nav CTA Button Text
         type: text
         default: Contact
       nav_cta_link:
-        label: Nav CTA Anchor (e.g. #contact)
+        label: Nav CTA Anchor
         type: text
         default: "#contact"
+        help: "e.g. #contact"
 
   # ─── HERO ───────────────────────────────────────────────────────────────────
   hero:
@@ -40,12 +203,12 @@ tabs:
         type: writer
         inline: true
         marks:
-          - italic    # Allows your highlight() function to work
-        nodes: false  # Disables <h2> and <p> tags so it doesn't break your <h1>
+          - italic
+        nodes: false
         default: "At the Apex of <br>AI-Augmented Design"
         help: >
-          Writer field — <p> tags are stripped on output.
-          Use line breaks for <br>. Italic renders as .highlight span.
+          Italic renders as .highlight span.
+          Use line breaks for <br>.
       hero_cta_text:
         label: CTA Button Label
         type: text
@@ -70,7 +233,8 @@ tabs:
         type: writer
         inline: false
         help: >
-          Italicise words to render them as dimmed highlight spans with hover effect.
+          Italicise words to render as dimmed highlight spans with hover effect.
+          This field outputs as a styled display heading on the live page.
 
   # ─── SOLUTIONS ──────────────────────────────────────────────────────────────
   solutions:
@@ -101,10 +265,38 @@ tabs:
             type: textarea
             size: medium
           tags:
-            label: Tech Tags (one per line, max 4)
+            label: "Tech Tags (one per line, max 4)"
             type: textarea
             size: small
-            help: "One tag per line, max 4. e.g: // CI/CD Automation"
+            help: "One tag per line. e.g: // CI/CD Automation"
+
+  # ─── EDITORIAL ──────────────────────────────────────────────────────────────
+  editorial:
+    label: Editorial
+    icon: text
+    fields:
+      editorial_intro:
+        label: ""
+        type: info
+        text: >
+          Freeform content area. Blocks here are rendered between
+          Solutions and Strategy on the live page.
+      editorial_blocks:
+        label: Editorial Content
+        type: layout
+        layouts:
+          - "1/1"
+          - "1/2, 1/2"
+          - "1/3, 1/3, 1/3"
+        fieldsets:
+          - heading
+          - text
+          - image
+          - quote
+          - video
+          - list
+          - code
+          - markdown
 
   # ─── STRATEGY ───────────────────────────────────────────────────────────────
   strategy:
@@ -125,7 +317,7 @@ tabs:
         default: "Reimagining Federal Delivery."
         help: Italicise words for the dimmed highlight effect.
       strategy_cells:
-        label: Strategy Cells (2×2 Grid)
+        label: "Strategy Cells (2×2 Grid — exactly 4 required)"
         type: structure
         min: 4
         max: 4
@@ -137,27 +329,25 @@ tabs:
             label: "Collapsed Body — visible in grid before click"
             type: textarea
             size: medium
-            help: 1–2 sentences. Visible in the 2×2 grid at all times.
+            help: 1–2 sentences. Always visible in the grid.
           expanded_body:
             label: "Expanded Body — left column, visible after click"
             type: textarea
             size: medium
-            help: Paragraph shown in the left column when the cell is clicked open.
           expanded_items:
             label: "Expanded List — left column, visible after click"
             type: textarea
             size: small
             help: "One item per line. e.g: > FIXED-PRICE SPRINTS"
           cell_media_type:
-            label: "Right Column Media Type"
+            label: Right Column Media Type
             type: select
             default: none
             options:
-              none: None — left column full width
+              none: "None — left column full width"
               image: Image
-              video: Video (MP4)
-              gallery: Gallery (crossfade slideshow)
-
+              video: "Video (MP4)"
+              gallery: "Gallery (crossfade slideshow)"
           cell_image:
             label: "Image — full-bleed cover"
             type: files
@@ -169,7 +359,6 @@ tabs:
             help: Portrait or square crop recommended, min 1200px tall.
             when:
               cell_media_type: image
-
           cell_video:
             label: "Video — autoplaying MP4"
             type: files
@@ -181,7 +370,6 @@ tabs:
             help: Plays muted and looped. Keep under 10MB.
             when:
               cell_media_type: video
-
           cell_gallery:
             label: "Gallery — multiple images (crossfade, 3s interval)"
             type: files

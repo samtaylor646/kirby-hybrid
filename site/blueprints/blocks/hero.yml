@@ -1,0 +1,67 @@
+name: Hero Section
+icon: layout
+preview: text
+fields:
+  title:
+    label: Main Title
+    type: text
+  subheading:
+    label: Subheading
+    type: text
+  text:
+    label: Body Text
+    type: textarea
+  cta_text:
+    label: Button Label
+    type: text
+    width: 1/2
+  cta_link:
+    label: Button Link
+    type: url
+    width: 1/2
+  bg_type:
+    label: Background Type
+    type: select
+    default: image
+    options:
+      image: Image
+      video: Video
+  image:
+    label: Background Image
+    type: files
+    max: 1
+  video:
+    label: Background Video
+    type: files
+    max: 1
+    when:
+      bg_type: video
+  theme:
+    label: Theme
+    type: toggles
+    default: light
+    options:
+      light: Light
+      dark: Dark
+  text_align:
+    label: Alignment
+    type: toggles
+    default: center
+    options:
+      left: Left
+      center: Center
+      right: Right
+  overlay_opacity:
+    label: Overlay Intensity
+    type: range
+    default: 40
+  height_mobile:
+    label: Mobile Height
+    type: range
+    default: 70
+    width: 1/2
+  height_desktop:
+    label: Desktop Height
+    type: range
+    default: 100
+    width: 1/2

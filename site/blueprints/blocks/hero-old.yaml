@@ -1,0 +1,94 @@
+name: Hero Section
+icon: layout
+# Add a preview definition to prevent the Panel from crashing 
+# when trying to render complex styles/scripts in the block list.
+preview: text
+tabs:
+  content:
+    label: Content
+    fields:
+      title:
+        label: Main Title
+        type: text
+        placeholder: "Enter heading..."
+      subheading:
+        label: Subheading
+        type: text
+        placeholder: "Optional small text above title"
+      text:
+        label: Body Text
+        type: textarea
+        buttons: 
+          - bold
+          - italic
+          - link
+      cta_text:
+        label: Button Label
+        type: text
+        width: 1/2
+      cta_link:
+        label: Button Link
+        type: url
+        width: 1/2
+      hr_1:
+        type: line
+      bg_type:
+        label: Background Type
+        type: select
+        default: image
+        options:
+          image: Image
+          video: Video
+      image:
+        label: Background Image (or Video Preview)
+        type: files
+        max: 1
+        layout: cards
+        help: "Sets the focal point for both Image and Video modes."
+      video:
+        label: Background Video
+        type: files
+        max: 1
+        when:
+          bg_type: video
+  settings:
+    label: Design Settings
+    fields:
+      theme:
+        label: Text Color Theme
+        type: toggles
+        default: light
+        options:
+          light: Light
+          dark: Dark
+      text_align:
+        label: Text Alignment
+        type: toggles
+        default: center
+        options:
+          left: Left
+          center: Center
+          right: Right
+      overlay_opacity:
+        label: Overlay Intensity
+        type: range
+        min: 0
+        max: 90
+        default: 40
+        step: 5
+      hr_2:
+        type: line
+      height_mobile:
+        label: Mobile Height (vh)
+        type: range
+        min: 30
+        max: 100
+        default: 70
+        width: 1/2
+      height_desktop:
+        label: Desktop Height (vh)
+        type: range
+        min: 30
+        max: 100
+        default: 100
+        width: 1/2

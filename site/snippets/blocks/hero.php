@@ -14,6 +14,7 @@ $hDesktop = $block->height_desktop()->or(100)->value();
 
 // Media & Focal Point
 $imgFile = $block->image()->toFile();
+$videoFile = $block->video()->toFile();
 $focalPoint = ($imgFile && $imgFile->focal()) ? $imgFile->focal() : '50% 50%';
 
 // Flex Alignment Mapping
@@ -77,6 +78,7 @@ $flexAlign = [
     z-index: 2;
     padding: 2rem 5%;
     max-width: 50rem;
+    /* Initial state for GSAP */
     opacity: 0;
     transform: translateY(40px);
   }
@@ -118,14 +120,18 @@ $flexAlign = [
 
 <section id="<?= $id ?>" class="gsap-hero-section">
   
-  <?php if ($type === 'image' && $imgFile): ?>
-    <img src="<?= $imgFile->url() ?>" class="hero-media" alt="<?= $imgFile->alt() ?>">
-  <?php elseif ($type === 'video' && $video = $block->video()->toFile()): ?>
+  <?php if ($type === 'video' && $videoFile): ?>
     <video 
-      data-src="<?= $video->url() ?>" 
-      class="hero-media js-hero-video" 
-      muted loop playsinline>
+      class="hero-media js-hero-video"
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      poster="<?= ($imgFile) ? $imgFile->url() : '' ?>">
+      <source src="<?= $videoFile->url() ?>" type="<?= $videoFile->mime() ?>">
     </video>
+  <?php elseif ($imgFile): ?>
+    <img src="<?= $imgFile->url() ?>" class="hero-media" alt="<?= $imgFile->alt() ?>">
   <?php endif ?>
 
   <div class="hero-content">

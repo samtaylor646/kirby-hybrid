@@ -2,7 +2,7 @@
 
 <main>
   <?php // 1. Render the Hero blocks (mainContent) first ?>
-  <?= $page->mainContent()->toBlocks() ?>
+  <?= $page->heroSections()->toBlocks() ?>
 
   <?php // 2. Render the modular layouts ?>
   <?php snippet('layouts', ['field' => $page->layout()]) ?>

@@ -1,18 +1,28 @@
 title: About us
 icon: ℹ️
+image: icon
+
+status:
+  draft: true
+  listed: true
+
+options:
+  changeSlug: false
+  delete: false
+  duplicate: true
 
 tabs:
   content:
-    label: Content
     icon: text
+    label: Content
     fields:
+      # 1. Added mainContent at the top to match your template logic
       mainContent:
         label: Page Sections
         type: blocks
-        empty: "Add your Hero section here..."
         fieldsets:
           - hero
-      
+      # 2. Existing layout field now follows the Hero
       layout:
         label: Layout
         type: layout
@@ -22,8 +32,8 @@ tabs:
           - "1/3, 1/3, 1/3"
 
   contact:
-    label: Contact
     icon: map
+    label: Contact
     columns:
       - width: 1/2
         fields:
@@ -42,10 +52,14 @@ tabs:
           social:
             label: On the web
             type: structure
+            columns:
+              platform: true
             fields:
               platform:
                 label: Platform
                 type: text
+                width: 1/2
               url:
                 label: URL
                 type: url
+                width: 1/2

@@ -13,6 +13,47 @@ console.log('Kirby + Vite 7 + Tailwind 4 + GSAP loaded.');
 
 window.addEventListener('load', () => {
 
+  // ── Hero Block Animations (New) ──────────────────────────────────────────
+  const initHeroBlocks = () => {
+    const heroes = document.querySelectorAll('.gsap-hero-section');
+    heroes.forEach((hero) => {
+      const content = hero.querySelector('.hero-content');
+      const video = hero.querySelector('.js-hero-video');
+
+      if (content) {
+        // Set initial state
+        gsap.set(content, { opacity: 0, y: 40 });
+
+        // Animate in
+        gsap.to(content, {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: hero,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        });
+      }
+
+      // Handle Video Autoplay/Pause on Scroll
+      if (video) {
+        ScrollTrigger.create({
+          trigger: hero,
+          start: 'top bottom',
+          end: 'bottom top',
+          onEnter: () => video.play(),
+          onLeave: () => video.pause(),
+          onEnterBack: () => video.play(),
+          onLeaveBack: () => video.pause()
+        });
+      }
+    });
+  };
+  initHeroBlocks();
+
   // ── Cursor ───────────────────────────────────────────────────────────────
   const cursor   = document.getElementById('cursor');
   const follower = document.getElementById('cursor-follower');
@@ -68,8 +109,6 @@ window.addEventListener('load', () => {
   }
 
   // ── Solutions — Stacking / Pinned Scroll Animation ───────────────────────
-  // .card-copy divs collapse sequentially as the user scrolls.
-  // The strategy section slides up underneath the collapsing solutions section.
   const copies          = document.querySelectorAll('.card-copy');
   const cards           = document.querySelectorAll('.service-card');
   const solutionsSection = document.getElementById('solutions');
